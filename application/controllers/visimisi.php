@@ -16,8 +16,8 @@ class Visimisi extends CI_Controller {
 	{
 	$username = $this->session->userdata('username');
 		$data['menu'] ="profil";
-		$data['submenu'] = "sejarah";
-		$data['profil'] = $this->m_sejarah->getProfil();
+		$data['submenu'] = "visimisi";
+		$data['profil'] = $this->m_visimisi->getProfil();
 		$this->template->load('adminlte', 'v_visimisi', $data);		
 	}
 	public function aksi_upload(){
@@ -35,11 +35,11 @@ class Visimisi extends CI_Controller {
 		if ( ! $this->upload->do_upload('imgprof')){
 			$error =  $this->upload->display_errors();
 			$this->session->set_flashdata('ubaherr', $error);
-			redirect('sejarah');
+			redirect('visimisi');
 		}else{
 			$data = $this->upload->data();
 			$this->session->set_flashdata('ubahss', 'foto berhasi di ubah');
-			redirect('sejarah');
+			redirect('visimisi');
 			}
 	}
 	public function ubahProf()
@@ -50,7 +50,7 @@ class Visimisi extends CI_Controller {
 		'isi' =>	$this->input->post('isi')
 		);
 
-		$res = $this->m_sejarah->updateProf($id, $data);
+		$res = $this->m_visimisi->updateProf($id, $data);
 		if ($res > 0) {
 			$this->session->set_flashdata('ubahss', 'Profil Berhasil diperbaharui');
 			redirect('dashboard');			
