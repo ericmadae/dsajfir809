@@ -10,6 +10,9 @@ $jabatan = $this->session->userdata('jabatan');
   <title> Sumedang Selatan - 
   <?php if (isset($menu)): ?>
    <?= $menu ?> 
+  <?php endif ?> - 
+  <?php if (isset($submenu)): ?>
+   <?= $submenu ?> 
   <?php endif ?>
     
   </title>
@@ -96,63 +99,6 @@ $jabatan = $this->session->userdata('jabatan');
   </header>
   <!-- Left side column. contains the logo and sidebar -->
 
-  <div class="modal fade" id="Ubah-akun">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header bg-primary">
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span></button>
-          <h4 class="modal-title">Ubah Akun</h4>
-        </div>
-        <?= form_open('dashboard/ubahakun'); ?>
-        <div class="modal-body">
-          <!--form -->
-             <div class="form-horizontal">
-              <div class="box-body">
-                <input type="text" name="id" value="<?= $akun->id ?>" hidden>
-                <div class="form-group">
-                  <label for="Username" class="col-sm-2 control-label">Username</label>
-                  <div class="col-sm-10">
-                    <input type="text" required="required" class="form-control" id="Username" placeholder="Username" name="username" value="<?= $akun->username ?>">
-                  </div>
-                </div>
-                <div class="form-group">
-                  <label for="Jabatan" class="col-sm-2 control-label">Jabatan</label>
-                  <div class="col-sm-10">
-                    <input type="text" class="form-control" id="Jabatan" placeholder="Username" name="jabatan"  value="<?= $akun->jabatan ?>" disabled>
-                  </div>
-                </div>
-                <div class="form-group">
-                  <label for="Password" class="col-sm-2 control-label">Password Baru</label>
-                  <div class="col-sm-10">
-                    <input type="password" required="required" class="form-control" id="Password" placeholder="Password" name="password" required>
-                  </div>
-                </div>
-                <div class="form-group">
-                  <label for="Password" class="col-sm-2 control-label">Konfirmasi Password</label>
-                  <div class="col-sm-10">
-                    <input type="password" required="required" class="form-control" id="confir_password" placeholder="Password" name="confir_password" required>
-                  </div>
-                </div>
-                <div class="form-group text-center text-danger">
-                  <span id="error"></span>
-                </div>
-              </div>
-              <!-- /.box-body -->
-            </div>
-            <!-- endForm -->
-        </div>
-        <div class="modal-footer">
-          <button type="submit" class="btn btn-primary">Save changes</button>
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        </div>
-        <?= form_close(); ?>
-      </div>
-      <!-- /.modal-content -->
-    </div>
-    <!-- /.modal-dialog -->
-  </div>
-  <!-- /.modal -->
   <aside class="main-sidebar">
     <!-- sidebar: style can be found in sidebar.less -->
     <section class="sidebar">
@@ -173,6 +119,19 @@ $jabatan = $this->session->userdata('jabatan');
           <a href="<?= base_url('dashboard') ?>">
             <i class="fa fa-dashboard"></i> <span>Dashboard</span>
           </a>
+        <li id="profil" class="treeview">
+                <a href="#">
+                  <i class="fa fa-id-card"></i>
+                  <span>Profil</span>
+                  <span class="pull-right-container">
+                    <i class="fa fa-angle-left pull-right"></i>
+                  </span>
+                </a>
+                <ul class="treeview-menu">
+                  <li id="sejarah"><a href="<?= base_url('sejarah') ?>"><i class="fa fa-book"></i> Sejarah</a></li>
+                  <li id="geografis"><a href="<?= base_url('geografis') ?>"><i class="fa fa-map"></i> letak Geografis</a></li>
+                </ul>
+              </li>
       </ul>
     </section>
     <!-- /.sidebar -->
@@ -184,7 +143,10 @@ $jabatan = $this->session->userdata('jabatan');
     <section class="content-header">
       <h1>
         <?php if (isset($menu)): ?>
-         <?= ucfirst($menu) ?> 
+         <?= ucfirst($menu).' \ ' ?> 
+        <?php endif ?>
+        <?php if (isset($submenu)): ?>
+         <?= ucfirst($submenu) ?> 
         <?php endif ?>
       </h1>
       <ol class="breadcrumb">
@@ -195,21 +157,23 @@ $jabatan = $this->session->userdata('jabatan');
           <?php endif ?></li>
       </ol>
     </section>
+    
+    <?php if ($this->session->flashdata('ubahss')): ?>
+       <div class="alert alert-success alert-dismissible">
+          <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+          <h4><i class="icon fa fa-check"></i><?= $this->session->flashdata('ubahss') ?> </h4>
+      </div> 
+    <?php endif ?>
+    <?php if ($this->session->flashdata('ubaherr')): ?>
+       <div class="alert alert-danger alert-dismissible">
+          <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+          <h4><i class="icon fa fa-ban"></i><?= $this->session->flashdata('ubaherr') ?> </h4>
+      </div> 
+    <?php endif ?>
 
     <!-- Main content -->
     <section class="content">
-     <?php if ($this->session->flashdata('ubahss')): ?>
-        <div class="alert alert-success alert-dismissible">
-           <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-           <h4><i class="icon fa fa-check"></i><?= $this->session->flashdata('ubahss') ?> </h4>
-       </div> 
-     <?php endif ?>
-     <?php if ($this->session->flashdata('ubaherr')): ?>
-        <div class="alert alert-success alert-dismissible">
-           <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-           <h4><i class="icon fa fa-check"></i><?= $this->session->flashdata('ubaherr') ?> </h4>
-       </div> 
-     <?php endif ?>
+     <?= $contents ?>
     </section>
     <!-- /.content -->
   </div>
@@ -270,9 +234,11 @@ $jabatan = $this->session->userdata('jabatan');
 <!-- Bootstrap WYSIHTML5 -->
 <script src="<?= base_url('assets/backend') ?>/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js"></script>
 <script>
-  $(function () {
-    $('.textarea').wysihtml5()
-  })
+$('#texteditor').wysihtml5({
+  toolbar:{
+    "image" : false
+  }
+});
 </script>
 <script>
   $(function () {
@@ -290,9 +256,20 @@ $jabatan = $this->session->userdata('jabatan');
 <?php if (isset($menu)): ?>
   <script>
   $(function() {
-    $(<?= $menu ?>).attr('class', 'active')
+    $("#<?= $menu ?>").attr('class', 'treeview active menu-open')
   });
 </script>
+<?php endif ?>
+
+<?php if (isset($submenu)): ?>
+  <script>
+  $(function() {
+    $("#<?= $submenu ?>").attr('class', 'active text-dangger')
+  });
+</script>
+<?php endif ?>
+
+
 <script>
 $("#confir_password").change(function() {
   $p1 = $("#confir_password").val();
@@ -303,7 +280,7 @@ $("#confir_password").change(function() {
   }
 });
 </script>
-<?php endif ?>
+
 
 <!-- load file js lain -->
 <?php if (isset($conjs)): ?>
