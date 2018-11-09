@@ -167,16 +167,16 @@ $jabatan = $this->session->userdata('jabatan');
           </ol>
         </section>
 
-        <?php if ($this->session->flashdata('ubahss')): ?>
+        <?php if ($this->session->flashdata('infoss')): ?>
          <div class="alert alert-success alert-dismissible">
           <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-          <h4><i class="icon fa fa-check"></i><?= $this->session->flashdata('ubahss') ?> </h4>
+          <h4><i class="icon fa fa-check"></i><?= $this->session->flashdata('infoss') ?> </h4>
         </div> 
       <?php endif ?>
-      <?php if ($this->session->flashdata('ubaherr')): ?>
+      <?php if ($this->session->flashdata('infoerr')): ?>
        <div class="alert alert-danger alert-dismissible">
         <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-        <h4><i class="icon fa fa-ban"></i><?= $this->session->flashdata('ubaherr') ?> </h4>
+        <h4><i class="icon fa fa-ban"></i><?= $this->session->flashdata('infoerr') ?> </h4>
       </div> 
     <?php endif ?>
 

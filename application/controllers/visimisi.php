@@ -34,11 +34,11 @@ class Visimisi extends CI_Controller {
 
 		if ( ! $this->upload->do_upload('imgprof')){
 			$error =  $this->upload->display_errors();
-			$this->session->set_flashdata('ubaherr', $error);
+			$this->session->set_flashdata('infoerr', $error);
 			redirect('visimisi');
 		}else{
 			$data = $this->upload->data();
-			$this->session->set_flashdata('ubahss', 'foto berhasi di ubah');
+			$this->session->set_flashdata('infoss', 'foto berhasi di ubah');
 			redirect('visimisi');
 			}
 	}
@@ -52,10 +52,10 @@ class Visimisi extends CI_Controller {
 
 		$res = $this->m_visimisi->updateProf($id, $data);
 		if ($res > 0) {
-			$this->session->set_flashdata('ubahss', 'Profil Berhasil diperbaharui');
+			$this->session->set_flashdata('infoss', 'Profil Berhasil diperbaharui');
 			redirect('dashboard');			
 		}else {
-			$this->session->set_flashdata('ubaherr', 'Profil Gagal diperbaharui');
+			$this->session->set_flashdata('infoerr', 'Profil Gagal diperbaharui');
 			redirect('dashboard');
 		}
 	}

@@ -27,10 +27,10 @@ class Dashboard extends CI_Controller {
 		);
 		$res = $this->m_dashboard->updateUser($id, $data);
 		if ($res > 0) {
-			$this->session->set_flashdata('ubahss', 'Akun berhasil diperbaharui');
+			$this->session->set_flashdata('infoss', 'Akun berhasil diperbaharui');
 			redirect('dashboard');			
 		}else {
-			$this->session->set_flashdata('ubaherr', 'Akun gagal diperbaharui');
+			$this->session->set_flashdata('infoerr', 'Akun gagal diperbaharui');
 			redirect('dashboard');
 		}
 	}
