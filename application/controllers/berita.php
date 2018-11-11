@@ -17,14 +17,14 @@ class Berita extends CI_Controller {
 	public function index()
 	{
 		$data['submenu'] = 'berita';
-		$data['berita'] = $this->m_berita->showBerita();		
+		$data['berita'] = $this->m_berita->showBerita();
 		$this->template->load('adminlte', 'v_berita', $data);
 	}
 	public function beritaBaru()
 	{
 		if (basename($_FILES['gambar']['name']) != null) {
 			// syarat
-			$config['upload_path']          = './assets/backend/dist/img/berita/';
+			$config['upload_path']          = './assetsimage/berita/';
 			$config['allowed_types']        = 'jpg|png|jpeg';
 			$config['max_size']             = 5000;
 			$config['max_width']            = 1024;

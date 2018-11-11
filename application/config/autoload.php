@@ -80,7 +80,7 @@ $autoload['helper'] = array('url', 'file', 'form', 'tanggal');
 |
 */
 
-$autoload['config'] = array();
+$autoload['config'] = array('');
 
 
 /*
@@ -109,7 +109,7 @@ $autoload['language'] = array();
 |
 */
 
-$autoload['model'] = array();
+$autoload['model'] = array('m_modal');
 
 
 /* End of file autoload.php */

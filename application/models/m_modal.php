@@ -3,11 +3,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class M_modal extends CI_Model {
 
-	public function v_modal()
+	public function infoAkun($username)
 		{
-			$username = $this->session->userdata('username');
-			$data['akun'] = $this->db->get_where('table', $, $limit, $offset);
+			$res = $this->db->get_where('tb_login', array('username'=>$username));
+			return $res->row();
 		}	
+	public function updateUser($id, $data)
+	{
+		$this->db->where('id', $id);
+		return $this->db->update('tb_login', $data);
+	}
 
 }
 

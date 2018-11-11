@@ -51,7 +51,7 @@
 				<?php $i=1; foreach ($berita as $row): ?>
 					<tr>
 						<td><?= $i++ ?></td>
-						<td><img src="<?= base_url('assets/backend/dist/img/berita/'.$row['gambar']) ?>" style="height: 100px; width: 100px" alt="foto berita"></td>
+						<td><img src="<?= base_url('assets/image/berita/'.$row['gambar']) ?>" style="height: 100px; width: 100px" alt="foto berita"></td>
 						<td><?= $row['judul_berita'] ?></td>
 						<td><?= $row['isi_berita'] ?></td>
 						<td><?= tanggal_indo($row['waktu_publish'], true)?></td>

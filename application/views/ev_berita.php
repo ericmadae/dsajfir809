@@ -3,7 +3,7 @@
 	<div class="box-header text-center">
 		<?php if (isset($edit['gambar'])): ?>
 			<div class="img-thumbnail">
-				<img src="<?= base_url('assets/backend/dist/img/berita/'.$edit['gambar']) ?>" alt="foto berita">				
+				<img src="<?= base_url('assets/image/berita/'.$edit['gambar']) ?>" alt="foto berita">				
 			</div>
 	</div>		
 		<?php endif ?>

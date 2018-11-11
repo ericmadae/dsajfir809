@@ -16,7 +16,8 @@ class Dashboard extends CI_Controller {
 	$username = $this->session->userdata('username');
 		$data['submenu'] = "dashboard";
 		$data['akun'] = $this->m_dashboard->getId($username);
-		$this->template->load('adminlte', 'v_dashboard', $data);		
+		$this->session->set_userdata($data['akun']);	
+		$this->template->load('adminlte', 'v_dashboard', $data);
 	}
 	public function ubahakun()
 	{

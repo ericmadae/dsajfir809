@@ -131,17 +131,65 @@ $jabatan = $this->session->userdata('jabatan');
             </a>
             <ul class="treeview-menu">
               <li id="sejarah"><a href="<?= base_url('sejarah') ?>"><i class="fa fa-book"></i> Sejarah</a></li>
-              <li id="geografis"><a href="<?= base_url('geografis') ?>"><i class="fa fa-map"></i> letak Geografis</a></li>
-              <li id="visimisi"><a href="<?= base_url('visimisi') ?>"><i class="fa fa-institution"></i> Visi Misi</a></li>
+              <li id="visimisi"><a href="<?= base_url('visimisi') ?>"><i class="fa fa-flag"></i> Visi Misi</a></li>
             </ul>
           </li>
 
-          <li id="berita" >
-            <a href="<?= base_url('berita') ?>">
-              <i class="fa fa-newspaper-o"></i> <span>Berita</span>
+         
+          <li id="profil" class="treeview">
+            <a href="#">
+              <i class="fa fa-institution"></i>
+              <span>Pemerintahan</span>
+              <span class="pull-right-container">
+                <i class="fa fa-angle-left pull-right"></i>
+              </span>
+            </a>
+            <ul class="treeview-menu">
+              <li id="organisasi"><a href="<?= base_url('organisasi') ?>"><i class="fa fa-sitemap"></i> Struktur Organisasi</a></li>
+              <li id="kepgawaian"><a href="<?= base_url('kepegawaian') ?>"><i class="fa fa-users"></i> Kepegawaian</a></li>
+              <li id="Keulurahan"><a href="<?= base_url('Keulurahan') ?>"><i class="fa  fa-code-fork"></i> Kelurahan</a></li>
+            </ul>
+          </li>
+
+          <li id="pelayanan" >
+            <a href="<?= base_url('pelayanan') ?>">
+              <i class="fa fa-info"></i> <span>Pelayana</span>
             </a>
           </li>
-        </ul>
+
+          <li id="profil" class="treeview">
+            <a href="#">
+              <i class="fa  fa-line-chart"></i>
+              <span>Statistik</span>
+              <span class="pull-right-container">
+                <i class="fa fa-angle-left pull-right"></i>
+              </span>
+            </a>
+            <ul class="treeview-menu">
+              <li id="organisasi"><a href="<?= base_url('organisasi') ?>"><i class="fa fa-sitemap"></i> Struktur Organisasi</a></li>
+              <li id="kepgawaian"><a href="<?= base_url('kepgawaian') ?>"><i class="fa fa-users"></i> Kepegawaian</a></li>
+              <li id="Keulurahan"><a href="<?= base_url('Keulurahan') ?>"><i class="fa  fa-code-fork"></i> Kelurahan</a></li>
+            </ul>
+          </li>
+
+          <li id="publikasi" class="treeview">
+            <a href="#">
+              <i class="fa  fa-list-alt"></i>
+              <span>Publikasi</span>
+              <span class="pull-right-container">
+                <i class="fa fa-angle-left pull-right"></i>
+              </span>
+            </a>
+            <ul class="treeview-menu">
+                <li id="berita" ><a href="<?= base_url('berita') ?>"><i class="fa fa-newspaper-o"></i> Berita</a></li>
+                <li id="agenda" ><a href="<?= base_url('agenda') ?>"><i class="fa fa-calendar"></i> Agenda</a></li>
+                <li id="galeri" ><a href="<?= base_url('galeri') ?>"><i class="fa fa-image"></i> Galeri</a></li>          
+                <li id="video" ><a href="<?= base_url('video') ?>"><i class="fa fa-video-camera"></i> Video</a></li>
+            </ul>
+         </li>
+                <li id="Kontak" ><a href="<?= base_url('layana') ?>"><i class="fa fa-commenting"></i> Kontak Masuk</a></li>
+
+
       </section>
       <!-- /.sidebar -->
     </aside>
