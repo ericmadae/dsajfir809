@@ -136,7 +136,7 @@ $jabatan = $this->session->userdata('jabatan');
           </li>
 
          
-          <li id="profil" class="treeview">
+          <li id="pemerintahan" class="treeview">
             <a href="#">
               <i class="fa fa-institution"></i>
               <span>Pemerintahan</span>
@@ -146,8 +146,8 @@ $jabatan = $this->session->userdata('jabatan');
             </a>
             <ul class="treeview-menu">
               <li id="organisasi"><a href="<?= base_url('organisasi') ?>"><i class="fa fa-sitemap"></i> Struktur Organisasi</a></li>
-              <li id="kepgawaian"><a href="<?= base_url('kepegawaian') ?>"><i class="fa fa-users"></i> Kepegawaian</a></li>
-              <li id="Keulurahan"><a href="<?= base_url('Keulurahan') ?>"><i class="fa  fa-code-fork"></i> Kelurahan</a></li>
+              <li id="kepegawaian"><a href="<?= base_url('kepegawaian') ?>"><i class="fa fa-users"></i> Kepegawaian</a></li>
+              <li id="desa"><a href="<?= base_url('kelurahan') ?>"><i class="fa  fa-code-fork"></i> Desa/Kelurahan</a></li>
             </ul>
           </li>
 
@@ -168,7 +168,7 @@ $jabatan = $this->session->userdata('jabatan');
             <ul class="treeview-menu">
               <li id="organisasi"><a href="<?= base_url('organisasi') ?>"><i class="fa fa-sitemap"></i> Struktur Organisasi</a></li>
               <li id="kepgawaian"><a href="<?= base_url('kepgawaian') ?>"><i class="fa fa-users"></i> Kepegawaian</a></li>
-              <li id="Keulurahan"><a href="<?= base_url('Keulurahan') ?>"><i class="fa  fa-code-fork"></i> Kelurahan</a></li>
+              <li id="desa"><a href="<?= base_url('Keulurahan') ?>"><i class="fa  fa-code-fork"></i> Kelurahan</a></li>
             </ul>
           </li>
 
@@ -203,7 +203,10 @@ $jabatan = $this->session->userdata('jabatan');
            <?= ucfirst($menu).' \ ' ?> 
          <?php endif ?>
          <?php if (isset($submenu)): ?>
-           <?= ucfirst($submenu) ?> 
+           <?= ucfirst($submenu);
+           if ($submenu == 'desa') {
+              echo '/Kelurahan';              
+            } ?> 
          <?php endif ?>
        </h1>
        <ol class="breadcrumb">

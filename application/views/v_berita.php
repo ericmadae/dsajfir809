@@ -52,8 +52,12 @@
 					<tr>
 						<td><?= $i++ ?></td>
 						<td><img src="<?= base_url('assets/image/berita/'.$row['gambar']) ?>" style="height: 100px; width: 100px" alt="foto berita"></td>
-						<td><?= $row['judul_berita'] ?></td>
-						<td><?= $row['isi_berita'] ?></td>
+						<td><b><?= substr($row['judul_berita'], 0, 10); if (strlen($row['judul_berita'])>10) {
+						echo '<br><br> baca selengkapnya....';	
+						} ?></b></td>
+						<td><?= substr($row['isi_berita'], 0, 50); if (strlen($row['isi_berita'])>50) {
+						echo '<br><br> baca selengkapnya....';	
+						} ?></td>
 						<td><?= tanggal_indo($row['waktu_publish'], true)?></td>
 						<td>
 							<div class="btn-group" role="group">
