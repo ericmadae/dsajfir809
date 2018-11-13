@@ -50,12 +50,12 @@
 			<tbody>
 				<?php $i=1; foreach ($berita as $row): ?>
 					<tr>
-						<td><?= $i++ ?></td>
-						<td><img src="<?= base_url('assets/image/berita/'.$row['gambar']) ?>" style="height: 100px; width: 100px" alt="foto berita"></td>
-						<td><b><?= substr($row['judul_berita'], 0, 10); if (strlen($row['judul_berita'])>10) {
+						<td width="5%"><?= $i++ ?></td>
+						<td ><img src="<?= base_url('assets/image/berita/'.$row['gambar']) ?>" style="height: 100px; width: 100px" alt="foto berita"></td>
+						<td width="20%"><b><?= substr($row['judul_berita'], 0, 10); if (strlen($row['judul_berita'])>10) {
 						echo '<br><br> baca selengkapnya....';	
 						} ?></b></td>
-						<td><?= substr($row['isi_berita'], 0, 50); if (strlen($row['isi_berita'])>50) {
+						<td width="60%"><?= substr($row['isi_berita'], 0, 100); if (strlen($row['isi_berita'])>50) {
 						echo '<br><br> baca selengkapnya....';	
 						} ?></td>
 						<td><?= tanggal_indo($row['waktu_publish'], true)?></td>

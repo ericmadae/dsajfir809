@@ -63,9 +63,9 @@
           <?php $i=1; foreach ($agenda as $row): ?>
             <tr>
               <td><?= $i++ ?></td>
-              <td><?= $row['nm_agenda']; ?></td>
-              <td><?= tanggal_indo($row['tanggal']) ?></td>
-              <td>
+              <td width="60%"><?= $row['nm_agenda']; ?></td>
+              <td width="20%"><?= tanggal_indo($row['tanggal']) ?></td>
+              <td width="15%">
                 <div class="btn-group pull-right">
                   <a href="<?= base_url('agenda/lihatdata/'.$row['id']) ?>" class="btn btn-success">Ubah</a>
                   <a href="<?= base_url('agenda/hapusdata/'.$row['id']) ?>" class="btn btn-danger" onclick="return confirm('Apakah anda yakin?')">Hapus</a>

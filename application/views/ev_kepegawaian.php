@@ -81,24 +81,6 @@
 					<th>Aksi</th>
 				</tr>
 			</thead>
-			<tbody>
-			<?php foreach ($pegawai as $row): ?>
-				
-				<tr>
-					<td><img src="<?= base_url('assets/image/pemerintahan/'.$row['foto']) ?>" alt="" class="img-thumbnail" style="height: 100px; width: 85px;"></td>
-					<td><?= $row['nama'] ?></td>
-					<td><?= $row['jabatan'] ?></td>
-					<td><?= $row['nip'] ?></td>
-					<td><?= $row['nik'] ?></td>
-					<td>
-						<div class="btn-group">
-							<a href="<?= base_url('kepegawaian/lihatdata/'.$row['id']) ?>" class="btn btn-success">Ubah</a>
-							<a onclick="return confirm('Apakah anda yakin?')" href="<?= base_url('kepegawaian/hapusdata/'.$row['id']) ?>" class="btn btn-danger">Hapus</a>
-						</div>
-					</td>
-				</tr>
-			<?php endforeach ?>
-			</tbody>
 			<tfoot>
 				<tr>
 					<th>Foto</th>
@@ -109,6 +91,24 @@
 					<th>Aksi</th>
 				</tr>
 			</tfoot>
+			<tbody>
+			<?php foreach ($pegawai as $row): ?>
+				
+				<tr>
+					<td width="10%"><img src="<?= base_url('assets/image/pemerintahan/'.$row['foto']) ?>" alt="" class="img-thumbnail" style="height: 100px; width: 85px;"></td>
+					<td><?= $row['nama'] ?></td>
+					<td><?= $row['jabatan'] ?></td>
+					<td><?= $row['nip'] ?></td>
+					<td><?= $row['nik'] ?></td>
+					<td width="15%">
+						<div class="btn-group">
+							<a href="<?= base_url('kepegawaian/lihatdata/'.$row['id']) ?>" class="btn btn-success">Ubah</a>
+							<a onclick="return confirm('Apakah anda yakin?')" href="<?= base_url('kepegawaian/hapusdata/'.$row['id']) ?>" class="btn btn-danger">Hapus</a>
+						</div>
+					</td>
+				</tr>
+			<?php endforeach ?>
+			</tbody>
 		</table>
 	</div>
 	<!-- /.box-body -->

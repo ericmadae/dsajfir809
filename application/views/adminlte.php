@@ -340,7 +340,11 @@ $jabatan = $this->session->userdata('jabatan');
     }
   });
 </script>
-
+<script>
+  $(function () {
+  $('[data-toggle="tooltip"]').tooltip()
+})
+</script>
 
 <!-- load file js lain -->
 <?php if (isset($conjs)): ?>

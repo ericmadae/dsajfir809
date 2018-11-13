@@ -60,10 +60,14 @@
 			<tbody>
 				<?php $i=1; foreach ($berita as $row): ?>
 					<tr>
-						<td><?= $i++ ?></td>
-						<td><img src="<?= base_url('assets/backend/dist/img/berita/'.$row['gambar']) ?>" style="height: 100px; width: 100px" alt="foto berita"></td>
-						<td><?= $row['judul_berita'] ?></td>
-						<td><?= $row['isi_berita'] ?></td>
+						<td width="5%"><?= $i++ ?></td>
+						<td ><img src="<?= base_url('assets/image/berita/'.$row['gambar']) ?>" style="height: 100px; width: 100px" alt="foto berita"></td>
+						<td width="20%"><b><?= substr($row['judul_berita'], 0, 10); if (strlen($row['judul_berita'])>10) {
+						echo '<br><br> baca selengkapnya....';	
+						} ?></b></td>
+						<td width="60%"><?= substr($row['isi_berita'], 0, 100); if (strlen($row['isi_berita'])>50) {
+						echo '<br><br> baca selengkapnya....';	
+						} ?></td>
 						<td><?= tanggal_indo($row['waktu_publish'], true)?></td>
 						<td>
 							<div class="btn-group" role="group">
