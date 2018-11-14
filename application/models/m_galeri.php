@@ -19,6 +19,11 @@ class M_galeri extends CI_Model {
 		$this->db->where('id', $id);
 		return $this->db->update('galeri', $data);	
 	}
+	public function deleteData($id)
+	{
+		$this->db->where('id', $id);
+		return $this->db->delete('galeri');
+	}
 }
 
 /* End of file m_galeri.php */

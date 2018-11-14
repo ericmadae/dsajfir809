@@ -184,7 +184,7 @@ $jabatan = $this->session->userdata('jabatan');
                 <li id="berita" ><a href="<?= base_url('berita') ?>"><i class="fa fa-newspaper-o"></i> Berita</a></li>
                 <li id="agenda" ><a href="<?= base_url('agenda') ?>"><i class="fa fa-calendar"></i> Agenda</a></li>
                 <li id="galeri" ><a href="<?= base_url('galeri') ?>"><i class="fa fa-image"></i> Galeri</a></li>          
-                <li id="video" ><a href="<?= base_url('video') ?>"><i class="fa fa-video-camera"></i> Video</a></li>
+                <li id="videos" ><a href="<?= base_url('videos') ?>"><i class="fa fa-video-camera"></i> Video</a></li>
             </ul>
          </li>
                 <li id="Kontak" ><a href="<?= base_url('layana') ?>"><i class="fa fa-commenting"></i> Kontak Masuk</a></li>

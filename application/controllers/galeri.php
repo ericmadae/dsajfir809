@@ -17,7 +17,7 @@ class Galeri extends CI_Controller {
 	}
 	public function tambah()
 	{
-		$config['upload_path']          = './upload/galeri/';
+		$config['upload_path']          = './uploads/galeri/';
 		$config['allowed_types']        = 'jpg|png|jpeg';
 		$config['max_size']             = 5000;
 		$config['max_width']            = 1024;
@@ -61,15 +61,16 @@ class Galeri extends CI_Controller {
 	}
 	public function ubahdata($id)
 	{
-
+		$nm_gambar = $this->input->post('nm_gambar');
 		if (basename($_FILES['gambar']['name']) != null) {
-			$config['upload_path']          = './upload/galeri/';
+			$config['upload_path']          = './uploads/galeri/';
 			$config['allowed_types']        = 'jpg|png|jpeg';
 			$config['max_size']             = 5000;
 			$config['max_width']            = 1024;
 			$config['max_height']           = 768;
 			
-			$file = $config['upload_path'].basename($_FILES['gambar']['name']);
+			$file = $config['upload_path'].$nm_gambar;
+
 				if (file_exists($file)) {
 					unlink($file);
 				}
@@ -111,6 +112,22 @@ class Galeri extends CI_Controller {
 					redirect('galeri');
 				}
 		}
+	}
+	public function hapusdata($id)
+	{
+		$data = $this->m_galeri->viewData($id);
+		$file =  './upload/galeri/'.$data['gambar'];
+		if (file_exists($file)) {
+			unlink($file);
+		}
+		$res = $this->m_galeri->deleteData($id);
+				if ($res > 0) {
+					$this->session->set_flashdata('infoss', 'Data berhasi dihapus');
+					redirect('galeri');
+				}else {
+					$this->session->set_flashdata('infoerr', 'Data gagal dihapus');
+					redirect('galeri');
+				}
 	}
 
 }

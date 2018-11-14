@@ -2,7 +2,7 @@
 <div class="box box-primary">
 	<div class="box-header with-border">
 		<div class="box-title">
-			<img src="<?= base_url('upload/galeri/'.$info['gambar']) ?>" class="img img-thumbnail">
+			<img src="<?= base_url('uploads/galeri/'.$info['gambar']) ?>" class="img img-thumbnail">
 			
 		</div>
 		
@@ -59,10 +59,11 @@
 		<?= form_close(); ?>
 	</div>
 	<div class="box-body">
-		<table class="table table-bordered table-striped">
+		<table class="table table-bordered table-striped" id="example1">
 			<thead>
 				<tr>
 					<th>No</th>
+					<th>Foto</th>
 					<th>Judul</th>
 					<th>tanggal</th>
 					<th>aksi</th>
@@ -71,6 +72,7 @@
 			<tfoot>
 				<tr>
 					<th>No</th>
+					<th>Foto</th>
 					<th>Judul</th>
 					<th>tanggal</th>
 					<th>aksi</th>
@@ -79,7 +81,8 @@
 			<tbody>
 				<?php $i=1; foreach ($galeri as $row): ?>
 				<tr>
-					<td width="10%" ><img src="<?= base_url('upload/galeri/'.$row['gambar']) ?>" width="100px" height="120px"></td>
+					<td><?= $i++; ?></td>
+					<td width="10%" ><img src="<?= base_url('uploads/galeri/'.$row['gambar']) ?>" width="100px" height="120px"></td>
 					<td width="50%"><?= $row['judul'] ?></td>
 					<td width="20%"><?= tanggal_indo($row['tanggal']) ?></td>
 					<td >
