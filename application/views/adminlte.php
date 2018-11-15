@@ -135,7 +135,7 @@ $jabatan = $this->session->userdata('jabatan');
             </ul>
           </li>
 
-         
+
           <li id="pemerintahan" class="treeview">
             <a href="#">
               <i class="fa fa-institution"></i>
@@ -181,87 +181,90 @@ $jabatan = $this->session->userdata('jabatan');
               </span>
             </a>
             <ul class="treeview-menu">
-                <li id="berita" ><a href="<?= base_url('berita') ?>"><i class="fa fa-newspaper-o"></i> Berita</a></li>
-                <li id="agenda" ><a href="<?= base_url('agenda') ?>"><i class="fa fa-calendar"></i> Agenda</a></li>
-                <li id="galeri" ><a href="<?= base_url('galeri') ?>"><i class="fa fa-image"></i> Galeri</a></li>          
-                <li id="videos" ><a href="<?= base_url('videos') ?>"><i class="fa fa-video-camera"></i> Video</a></li>
+              <li id="berita" ><a href="<?= base_url('berita') ?>"><i class="fa fa-newspaper-o"></i> Berita</a></li>
+              <li id="agenda" ><a href="<?= base_url('agenda') ?>"><i class="fa fa-calendar"></i> Agenda</a></li>
+              <li id="galeri" ><a href="<?= base_url('galeri') ?>"><i class="fa fa-image"></i> Galeri</a></li>          
+              <li id="videos" ><a href="<?= base_url('videos') ?>"><i class="fa fa-video-camera"></i> Video</a></li>
             </ul>
-         </li>
-                <li id="Kontak" ><a href="<?= base_url('layana') ?>"><i class="fa fa-commenting"></i> Kontak Masuk</a></li>
+          </li>
+          <li id="kontak" ><a href="<?= base_url('kontak') ?>"><i class="fa fa-commenting"></i> Kontak Masuk</a></li>
 
 
-      </section>
-      <!-- /.sidebar -->
-    </aside>
-
-    <!-- Content Wrapper. Contains page content -->
-    <div class="content-wrapper">
-      <!-- Content Header (Page header) -->
-      <section class="content-header">
-        <h1>
-          <?php if (isset($menu)): ?>
-           <?= ucfirst($menu).' \ ' ?> 
-         <?php endif ?>
-         <?php if (isset($submenu)): ?>
-           <?= ucfirst($submenu);
-           if ($submenu == 'desa') {
-              echo '/Kelurahan';              
-            } ?> 
-         <?php endif ?>
-       </h1>
-       <ol class="breadcrumb">
-        <li><a href="<?= base_url('dashboard') ?>"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li class="active">
-          <?php if (isset($submenu)): ?>
-            <?= ucfirst($submenu) ?> 
-            <?php endif ?></li>
-          </ol>
         </section>
+        <!-- /.sidebar -->
+      </aside>
 
-        <?php if ($this->session->flashdata('infoss')): ?>
-         <div class="alert alert-success alert-dismissible">
+      <!-- Content Wrapper. Contains page content -->
+      <div class="content-wrapper">
+        <!-- Content Header (Page header) -->
+        <section class="content-header">
+          <h1>
+            <?php if (isset($menu)): ?>
+             <?= ucfirst($menu).' \ ' ?> 
+           <?php endif ?>
+           <?php if (isset($submenu)): ?>
+             <?= ucfirst($submenu);
+             if ($submenu == 'desa') {
+              echo '/Kelurahan';              
+            } ?> <?php
+            if ($submenu == 'kontak') {
+              echo ' Masuk';              
+            } ?> 
+          <?php endif ?>
+        </h1>
+        <ol class="breadcrumb">
+          <li><a href="<?= base_url('dashboard') ?>"><i class="fa fa-dashboard"></i> Home</a></li>
+          <li class="active">
+            <?php if (isset($submenu)): ?>
+              <?= ucfirst($submenu) ?> 
+              <?php endif ?></li>
+            </ol>
+          </section>
+
+          <?php if ($this->session->flashdata('infoss')): ?>
+           <div class="alert alert-success alert-dismissible">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+            <h4><i class="icon fa fa-check"></i><?= $this->session->flashdata('infoss') ?> </h4>
+          </div> 
+        <?php endif ?>
+        <?php if ($this->session->flashdata('infoerr')): ?>
+         <div class="alert alert-danger alert-dismissible">
           <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-          <h4><i class="icon fa fa-check"></i><?= $this->session->flashdata('infoss') ?> </h4>
+          <h4><i class="icon fa fa-ban"></i><?= $this->session->flashdata('infoerr') ?> </h4>
         </div> 
       <?php endif ?>
-      <?php if ($this->session->flashdata('infoerr')): ?>
-       <div class="alert alert-danger alert-dismissible">
-        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-        <h4><i class="icon fa fa-ban"></i><?= $this->session->flashdata('infoerr') ?> </h4>
-      </div> 
-    <?php endif ?>
 
-    <!-- Main content -->
-    <section class="content">
-     <?= $contents ?>
-   </section>
-   <!-- /.content -->
- </div>
- <!-- /.content-wrapper -->
+      <!-- Main content -->
+      <section class="content">
+       <?= $contents ?>
+     </section>
+     <!-- /.content -->
+   </div>
+   <!-- /.content-wrapper -->
 
- <footer class="main-footer">
-  <div class="pull-right hidden-xs">
-    <b>Web Kecamatan</b> V.1.0.0
-  </div>
-  <strong>STMIK SUMEDANG</strong>
-</footer>
-
-<!-- Control Sidebar -->
-<aside class="control-sidebar control-sidebar-dark">
-  <!-- Create the tabs -->
-  <ul class="nav nav-tabs nav-justified control-sidebar-tabs">
-    <li><a href="#control-sidebar-settings-tab" data-toggle="tab"><i class="fa fa-gears"></i></a></li>
-  </ul>
-  <!-- Tab panes -->
-  <div class="tab-content">
-    <!-- Home tab content -->
-    <div class="tab-pane" id="control-sidebar-home-tab">
-
+   <footer class="main-footer">
+    <div class="pull-right hidden-xs">
+      <b>Web Kecamatan</b> V.1.0.0
     </div>
-    <!-- /.tab-pane -->
-  </div>
-</aside>
-<!-- /.control-sidebar -->
+    <strong>STMIK SUMEDANG</strong>
+  </footer>
+
+  <!-- Control Sidebar -->
+  <aside class="control-sidebar control-sidebar-dark">
+    <!-- Create the tabs -->
+    <ul class="nav nav-tabs nav-justified control-sidebar-tabs">
+      <li><a href="#control-sidebar-settings-tab" data-toggle="tab"><i class="fa fa-gears"></i></a></li>
+    </ul>
+    <!-- Tab panes -->
+    <div class="tab-content">
+      <!-- Home tab content -->
+      <div class="tab-pane" id="control-sidebar-home-tab">
+
+      </div>
+      <!-- /.tab-pane -->
+    </div>
+  </aside>
+  <!-- /.control-sidebar -->
   <!-- Add the sidebar's background. This div must be placed
    immediately after the control sidebar -->
    <div class="control-sidebar-bg"></div>
@@ -306,8 +309,8 @@ $jabatan = $this->session->userdata('jabatan');
     $('#example2').DataTable({
       'paging'      : true,
       'lengthChange': false,
-      'searching'   : false,
-      'ordering'    : true,
+      'searching'   : true,
+      'ordering'    : false,
       'info'        : true,
       'autoWidth'   : false
     })
@@ -342,8 +345,21 @@ $jabatan = $this->session->userdata('jabatan');
 </script>
 <script>
   $(function () {
-  $('[data-toggle="tooltip"]').tooltip()
-})
+    $('[data-toggle="tooltip"]').tooltip()
+  })
+</script>
+<script>
+  $('#checkAll').change(function() {
+    $('.checkbox').prop('checked', $(this).prop('checked'));
+  });
+  $('.checkbox').change(function() {
+    if ($(this).prop('checked')== false) {
+      $('#checkAll').prop('checked', false);
+    }
+    if ($('.checkbox:checked').length == $(".checkbox").length) {
+        $('#checkall').prop('checked', true);
+    }
+  });
 </script>
 
 <!-- load file js lain -->

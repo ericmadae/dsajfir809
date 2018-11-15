@@ -4,28 +4,29 @@
 	</div>
 	<!-- /.box-header -->
 	<!-- form start -->
-	<?= form_open('pelayanan/tambah'); ?>
+	<?= form_open('pelayanan/ubahdata/'.$info['id']); ?>
 	<div class="form-horizontal">
 		<div class="box-body">
 			<div class="form-group">
 				<label for="inputEmail3" class="col-sm-2 control-label">Pelayanan</label>
 
 				<div class="col-sm-10">
-					<input type="text" class="form-control" id="inputEmail3" placeholder="Nama Pelayanan" name="pelayanan">
+					<input type="text" class="form-control" id="inputEmail3" placeholder="Nama Pelayanan" name="pelayanan" value="<?= $info['pelayanan'] ?>">
 				</div>
 			</div>
 			<div class="form-group">
 				<label for="inputPassword3" class="col-sm-2 control-label">Syrat - Syarat</label>
 
 				<div class="col-sm-10">
-					<textarea name="persyaratan" id="texteditor" class="form-control" placeholder="Isi persyaratan disini.."></textarea>
+					<textarea name="persyaratan" id="texteditor" class="form-control" placeholder="Isi persyaratan disini.."><?= $info['persyaratan'] ?></textarea>
 				</div>
 			</div>
 
 		</div>
 		<!-- /.box-body -->
 		<div class="box-footer">
-			<button type="submit" class="btn btn-info pull-right">Tambah</button>
+      <a href="<?= base_url('pelayanan') ?>" class="btn btn-primary">Kembali</a>
+			<button type="submit" class="btn btn-success pull-right">Ubah</button>
 		</div>
 		<!-- /.box-footer -->
 	</div>
