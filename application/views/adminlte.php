@@ -187,6 +187,7 @@ $jabatan = $this->session->userdata('jabatan');
               <li id="videos" ><a href="<?= base_url('videos') ?>"><i class="fa fa-video-camera"></i> Video</a></li>
             </ul>
           </li>
+          <li id="dokumen" ><a href="<?= base_url('dokumen') ?>"><i class="fa fa-book"></i> Dokumen</a></li>
           <li id="kontak" ><a href="<?= base_url('kontak') ?>"><i class="fa fa-commenting"></i> Kontak Masuk</a></li>
 
 
