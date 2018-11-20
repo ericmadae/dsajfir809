@@ -36,7 +36,7 @@ class kontak extends CI_Controller {
 		foreach ($_POST['id'] as $id) {
 			$this->m_kontak->deleteData($id);
 		}
-		$this->session->set_flashdata('info', 'Data berhasil dihapus');
+		$this->session->set_flashdata('infoss', 'Data berhasil dihapus');
 		redirect('kontak');
 	}
 
