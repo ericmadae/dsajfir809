@@ -24,11 +24,9 @@ class Berita extends CI_Controller {
 	{
 		if (basename($_FILES['gambar']['name']) != null) {
 			// syarat
-			$config['upload_path']          = './assetsimage/berita/';
+			$config['upload_path']          = './assets/image/berita/';
 			$config['allowed_types']        = 'jpg|png|jpeg';
 			$config['max_size']             = 5000;
-			$config['max_width']            = 1024;
-			$config['max_height']           = 768;
 			$config['overwrite']			= false;
 
 			// melakukan upload
