@@ -80,7 +80,7 @@ $jabatan = $this->session->userdata('jabatan');
                 <!-- Menu Footer-->
                 <li class="user-footer">
                   <div class="pull-left">
-                    <button type="button" class="btn btn-default btn-flat" data-toggle="modal" data-target="#Ubah-akun">Ubah akun</button>
+                    <button type="button" class="btn btn-default btn-flat" data-toggle="modal" data-target="#Ubah-akun" id="btn_ubah">Ubah akun</button>
                   </div>
                   <div class="pull-right">
                     <a href="<?= base_url('login/logout') ?>" class="btn btn-default btn-flat">Logout</a>
@@ -157,7 +157,7 @@ $jabatan = $this->session->userdata('jabatan');
             </a>
           </li>
 
-          <li id="profil" class="treeview">
+          <li id="statistik" class="treeview">
             <a href="#">
               <i class="fa  fa-line-chart"></i>
               <span>Statistik</span>
@@ -166,7 +166,7 @@ $jabatan = $this->session->userdata('jabatan');
               </span>
             </a>
             <ul class="treeview-menu">
-              <li id="organisasi"><a href="<?= base_url('organisasi') ?>"><i class="fa fa-sitemap"></i> Struktur Organisasi</a></li>
+              <li id="kependudukan"><a href="<?= base_url('table1') ?>"><i class="fa fa-users"></i> Kependudukan</a></li>
               <li id="kepgawaian"><a href="<?= base_url('kepgawaian') ?>"><i class="fa fa-users"></i> Kepegawaian</a></li>
               <li id="desa"><a href="<?= base_url('Keulurahan') ?>"><i class="fa  fa-code-fork"></i> Kelurahan</a></li>
             </ul>
@@ -272,7 +272,63 @@ $jabatan = $this->session->userdata('jabatan');
 
  </div>
  <!-- ./wrapper -->
-
+  <div class="modal fade" id="Ubah-akun">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header bg-primary">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title">Ubah Akun</h4>
+        </div>
+        <?= form_open('modal/ubahakun'); ?>
+        <div class="modal-body">
+          <!--form -->
+             <div class="form-horizontal">
+              <div class="box-body">
+                <input type="text" name="id" value="" id="id_l" hidden>
+                <div class="form-group">
+                  <label for="Username" class="col-sm-2 control-label">Username</label>
+                  <div class="col-sm-10">
+                    <input type="text" required="required" class="form-control" id="Username" placeholder="Username" name="username" value="">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="Jabatan" class="col-sm-2 control-label">Jabatan</label>
+                  <div class="col-sm-10">
+                    <input type="text" class="form-control" id="Jabatan" placeholder="Username" name="jabatan"  value="" disabled>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="Password" class="col-sm-2 control-label">Password Baru</label>
+                  <div class="col-sm-10">
+                    <input type="password" required="required" class="form-control" id="Password" placeholder="Password" name="password" required>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="Password" class="col-sm-2 control-label">Konfirmasi Password</label>
+                  <div class="col-sm-10">
+                    <input type="password" required="required" class="form-control" id="confir_password" placeholder="Password" name="confir_password" required>
+                  </div>
+                </div>
+                <div class="form-group text-center text-danger">
+                  <span id="error"></span>
+                </div>
+              </div>
+              <!-- /.box-body -->
+            </div>
+            <!-- endForm -->
+        </div>
+        <div class="modal-footer">
+          <button type="submit" class="btn btn-primary">Simpan</button>
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+        <?= form_close(); ?>
+      </div>
+      <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+  </div>
+  <!-- /.modal -->
  <!-- jQuery 3 -->
  <script src="<?= base_url('assets/backend') ?>/bower_components/jquery/dist/jquery.min.js"></script>
  <!-- Bootstrap 3.3.7 -->
@@ -333,17 +389,6 @@ $jabatan = $this->session->userdata('jabatan');
   </script>
 <?php endif ?>
 
-
-<script>
-  $("#confir_password").change(function() {
-    $p1 = $("#confir_password").val();
-    $p2 = $("#Password").val();
-
-    if ($p1 != $p2) {
-      $("#error").text('Konfirmasi password salah');
-    }
-  });
-</script>
 <script>
   $(function () {
     $('[data-toggle="tooltip"]').tooltip()
@@ -360,6 +405,61 @@ $jabatan = $this->session->userdata('jabatan');
     if ($('.checkbox:checked').length == $(".checkbox").length) {
         $('#checkall').prop('checked', true);
     }
+  });
+</script>
+
+
+<script>
+  $("#confir_password").change(function() {
+    $p1 = $("#confir_password").val();
+    $p2 = $("#Password").val();
+
+    if ($p1 != $p2) {
+      $("#error").text('Konfirmasi password salah');
+    }else{
+      $("#error").text();
+    }
+
+  });
+
+  $(document).ready(function() {
+    $("#btn_ubah").click(function() {
+        $.ajax({
+          url: '<?= base_url('modal') ?>',
+          type: 'GET',
+        })
+        .done(function(res) {
+          console.log(res);
+          var hasil = JSON.parse(res);
+          $(".modal-body #id_l").val(hasil.id);
+          $(".modal-body #Username").val(hasil.username);
+        })
+        .fail(function() {
+          console.log("error");
+        })
+        .always(function() {
+          console.log("complete");
+        });
+        
+    });
+
+    $("modal-footer #Simpan").click(function() {
+      $.ajax({
+        url: '<?= base_url('modal/ubahakun') ?>',
+        type: 'POST',
+        data: $(this) form,
+      })
+      .done(function() {
+        console.log("success");
+      })
+      .fail(function() {
+        console.log("error");
+      })
+      .always(function() {
+        console.log("complete");
+      });
+      
+    });
   });
 </script>
 

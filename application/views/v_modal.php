@@ -6,7 +6,7 @@
             <span aria-hidden="true">&times;</span></button>
           <h4 class="modal-title">Ubah Akun</h4>
         </div>
-        <?= form_open('dashboard/ubahakun'); ?>
+        <?= form_open('modal/ubahakun'); ?>
         <div class="modal-body">
           <!--form -->
              <div class="form-horizontal">
@@ -55,3 +55,19 @@
     <!-- /.modal-dialog -->
   </div>
   <!-- /.modal -->
+
+
+<script>
+  $("#confir_password").change(function() {
+    $p1 = $("#confir_password").val();
+    $p2 = $("#Password").val();
+
+    if ($p1 != $p2) {
+      $("#error").text('Konfirmasi password salah');
+    }
+    if ($p1 == $p2) {
+      $("#error").text();
+    }
+
+  });
+</script>

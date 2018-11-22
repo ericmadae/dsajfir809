@@ -6,7 +6,7 @@ class M_modal extends CI_Model {
 	public function infoAkun($username)
 		{
 			$res = $this->db->get_where('tb_login', array('username'=>$username));
-			return $res->row();
+			return $res->row_array();
 		}	
 	public function updateUser($id, $data)
 	{
