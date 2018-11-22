@@ -11,11 +11,20 @@ class M_stk extends CI_Model {
 	{
 		return $this->db->insert($table, $data);
 	}
-	function viewData($id)
+	function viewData($table, $id)
 	{
 		return $this->db->get_where($table, array('id'=>$id))->row_array();
 	}
-
+	public function updateData($table, $id, $data)
+	{
+		$this->db->where('id', $id);
+		return $this->db->update($table, $data);		
+	}
+	public function deleteData($table, $id)
+	{
+		$this->db->where('id', $id);
+		return $this->db->delete($table);
+	}
 }
 
 /* End of file m_stk.php */

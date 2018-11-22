@@ -153,7 +153,7 @@ $jabatan = $this->session->userdata('jabatan');
 
           <li id="pelayanan" >
             <a href="<?= base_url('pelayanan') ?>">
-              <i class="fa fa-info"></i> <span>Pelayana</span>
+              <i class="fa fa-info"></i> <span>Pelayanan</span>
             </a>
           </li>
 
@@ -166,9 +166,9 @@ $jabatan = $this->session->userdata('jabatan');
               </span>
             </a>
             <ul class="treeview-menu">
-              <li id="kependudukan"><a href="<?= base_url('table1') ?>"><i class="fa fa-users"></i> Kependudukan</a></li>
-              <li id="kepgawaian"><a href="<?= base_url('kepgawaian') ?>"><i class="fa fa-users"></i> Kepegawaian</a></li>
-              <li id="desa"><a href="<?= base_url('Keulurahan') ?>"><i class="fa  fa-code-fork"></i> Kelurahan</a></li>
+              <li id="kependudukan"><a href="<?= base_url('statistik/table1') ?>"><i class="fa fa-users"></i> Kependudukan</a></li>
+              <li id="luas"><a href="<?= base_url('statistik/table2') ?>"><i class="fa fa-map"></i> Luas Daerah</a></li>
+              <li id="KK"><a href="<?= base_url('statistik/table3') ?>"><i class="fa  fa-child"></i> Tahapan Kesejahtraan</a></li>
             </ul>
           </li>
 
@@ -207,9 +207,16 @@ $jabatan = $this->session->userdata('jabatan');
              <?= ucfirst($submenu);
              if ($submenu == 'desa') {
               echo '/Kelurahan';              
-            } ?> <?php
+            } ?> 
+            <?php
             if ($submenu == 'kontak') {
               echo ' Masuk';              
+            } ?> <?php
+            if ($submenu == 'luas') {
+              echo ' Daerah';              
+            } ?> <?php
+            if ($submenu == 'KK') {
+              echo ' Sesuai Tahap Sejahtra';              
             } ?> 
           <?php endif ?>
         </h1>
@@ -347,8 +354,6 @@ $jabatan = $this->session->userdata('jabatan');
  <script src="<?= base_url('assets/backend') ?>/plugins/jvectormap/jquery-jvectormap-world-mill-en.js"></script>
  <!-- SlimScroll -->
  <script src="<?= base_url('assets/backend') ?>/bower_components/jquery-slimscroll/jquery.slimscroll.min.js"></script>
- <!-- ChartJS -->
- <script src="<?= base_url('assets/backend') ?>/bower_components/chart.js/Chart.js"></script>
  <!-- AdminLTE for demo purposes -->
  <script src="<?= base_url('assets/backend') ?>/dist/js/demo.js"></script>
  <!-- Bootstrap WYSIHTML5 -->
@@ -462,6 +467,7 @@ $jabatan = $this->session->userdata('jabatan');
     });
   });
 </script>
+
 
 <!-- load file js lain -->
 <?php if (isset($conjs)): ?>

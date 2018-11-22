@@ -17,7 +17,7 @@
 				<input type="file" name="fvideo" class="form-control">
 				<input type="text" value="<?= $info['video'] ?>" name="nm_video" hidden>
 			</div>
-			<a href="<?= base_url('video') ?>" class="btn btn-default">Kembali</a>
+			<a href="<?= base_url('videos') ?>" class="btn btn-default">Kembali</a>
 		</div>
 		<div class="col-sm-6">
 			<div class="form-group">
