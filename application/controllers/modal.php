@@ -15,6 +15,7 @@ class Modal extends CI_Controller {
 		$data = array(
 			'id' => $akun['id'],
 			'username' => $akun['username'],
+			'jabatan' => $akun['jabatan'],
 		);
 
 		 echo json_encode($data);
@@ -28,24 +29,18 @@ class Modal extends CI_Controller {
 			'username' =>$username,
 			'password' => md5($this->input->post('password'))
 		);
-		print_r($data);
-		//$res = $this->m_dashboard->updateUser($id, $data);
-		$data1 = array(
-			'username' =>$username);
-		echo $this->session->userdata('username');
-		$this->session->unset_userdata('username');
+		$res = $this->m_modal->updateUser($id, $data);
+		$data1 = array('username' =>$username);
+		$this->session->userdata('username');
+		if ($res > 0) {
+			$this->session->unset_userdata('username');
 		$this->session->set_userdata($data1);
-		echo $this->session->userdata('username');
+			$this->session->set_flashdata('infoss', 'Akun berhasil diperbaharui');
+			
+		}else {
+			$this->session->set_flashdata('infoerr', 'Akun gagal diperbaharui');
 
-		// if ($res > 0) {
-		// 	$this->session->unset_userdata('username');			
-		// 	$this->session->set_userdata($data['username']);
-		// 	$this->session->set_flashdata('infoss', 'Akun berhasil diperbaharui');
-		// 	redirect($this->uri->uri_string());			
-		// }else {
-		// 	$this->session->set_flashdata('infoerr', 'Akun gagal diperbaharui');
-		// 	redirect($this->uri->uri_string());
-		// }
+		}
 	}	
 
 }

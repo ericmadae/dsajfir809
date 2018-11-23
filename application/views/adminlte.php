@@ -279,86 +279,86 @@ $jabatan = $this->session->userdata('jabatan');
 
  </div>
  <!-- ./wrapper -->
-  <div class="modal fade" id="Ubah-akun">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header bg-primary">
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span></button>
+ <div class="modal fade" id="Ubah-akun">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header bg-primary">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span></button>
           <h4 class="modal-title">Ubah Akun</h4>
         </div>
-        <?= form_open('modal/ubahakun'); ?>
-        <div class="modal-body">
-          <!--form -->
-             <div class="form-horizontal">
-              <div class="box-body">
-                <input type="text" name="id" value="" id="id_l" hidden>
-                <div class="form-group">
-                  <label for="Username" class="col-sm-2 control-label">Username</label>
-                  <div class="col-sm-10">
-                    <input type="text" required="required" class="form-control" id="Username" placeholder="Username" name="username" value="">
-                  </div>
-                </div>
-                <div class="form-group">
-                  <label for="Jabatan" class="col-sm-2 control-label">Jabatan</label>
-                  <div class="col-sm-10">
-                    <input type="text" class="form-control" id="Jabatan" placeholder="Username" name="jabatan"  value="" disabled>
-                  </div>
-                </div>
-                <div class="form-group">
-                  <label for="Password" class="col-sm-2 control-label">Password Baru</label>
-                  <div class="col-sm-10">
-                    <input type="password" required="required" class="form-control" id="Password" placeholder="Password" name="password" required>
-                  </div>
-                </div>
-                <div class="form-group">
-                  <label for="Password" class="col-sm-2 control-label">Konfirmasi Password</label>
-                  <div class="col-sm-10">
-                    <input type="password" required="required" class="form-control" id="confir_password" placeholder="Password" name="confir_password" required>
-                  </div>
-                </div>
-                <div class="form-group text-center text-danger">
-                  <span id="error"></span>
-                </div>
+        <form id="formUbah">
+      <div class="modal-body">
+        <!--form -->
+        <div class="form-horizontal">
+          <div class="box-body">
+            <input type="text" name="id" value="" id="id_l" hidden>
+            <div class="form-group">
+              <label for="Username" class="col-sm-2 control-label">Username</label>
+              <div class="col-sm-10">
+                <input type="text" required="required" class="form-control" id="Username" placeholder="Username" name="username" value="">
               </div>
-              <!-- /.box-body -->
             </div>
-            <!-- endForm -->
+            <div class="form-group">
+              <label for="Jabatan" class="col-sm-2 control-label">Jabatan</label>
+              <div class="col-sm-10">
+                <input type="text" class="form-control" id="Jabatan" placeholder="Username" name="jabatan"  value="" disabled>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="Password" class="col-sm-2 control-label">Password Baru</label>
+              <div class="col-sm-10">
+                <input type="password" required="required" class="form-control" id="Password" placeholder="Password" name="password" required>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="Password" class="col-sm-2 control-label">Konfirmasi Password</label>
+              <div class="col-sm-10">
+                <input type="password" required="required" class="form-control" id="confir_password" placeholder="Password" name="confir_password" required>
+              </div>
+            </div>
+            <div class="form-group text-center text-danger">
+              <span id="error"></span>
+            </div>
+          </div>
+          <!-- /.box-body -->
         </div>
-        <div class="modal-footer">
-          <button type="submit" class="btn btn-primary">Simpan</button>
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        </div>
-        <?= form_close(); ?>
+        <!-- endForm -->
       </div>
-      <!-- /.modal-content -->
-    </div>
-    <!-- /.modal-dialog -->
+      <div class="modal-footer">
+        <button type="submit" class="btn btn-primary" id="Simpan">Simpan</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </form>
   </div>
-  <!-- /.modal -->
- <!-- jQuery 3 -->
- <script src="<?= base_url('assets/backend') ?>/bower_components/jquery/dist/jquery.min.js"></script>
- <!-- Bootstrap 3.3.7 -->
- <script src="<?= base_url('assets/backend') ?>/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
- <!-- DataTables -->
- <script src="<?= base_url('assets/backend') ?>/bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
- <script src="<?= base_url('assets/backend') ?>/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
- <!-- FastClick -->
- <script src="<?= base_url('assets/backend') ?>/bower_components/fastclick/lib/fastclick.js"></script>
- <!-- AdminLTE App -->
- <script src="<?= base_url('assets/backend') ?>/dist/js/adminlte.min.js"></script>
- <!-- Sparkline -->
- <script src="<?= base_url('assets/backend') ?>/bower_components/jquery-sparkline/dist/jquery.sparkline.min.js"></script>
- <!-- jvectormap  -->
- <script src="<?= base_url('assets/backend') ?>/plugins/jvectormap/jquery-jvectormap-1.2.2.min.js"></script>
- <script src="<?= base_url('assets/backend') ?>/plugins/jvectormap/jquery-jvectormap-world-mill-en.js"></script>
- <!-- SlimScroll -->
- <script src="<?= base_url('assets/backend') ?>/bower_components/jquery-slimscroll/jquery.slimscroll.min.js"></script>
- <!-- AdminLTE for demo purposes -->
- <script src="<?= base_url('assets/backend') ?>/dist/js/demo.js"></script>
- <!-- Bootstrap WYSIHTML5 -->
- <script src="<?= base_url('assets/backend') ?>/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js"></script>
- <script>
+  <!-- /.modal-content -->
+</div>
+<!-- /.modal-dialog -->
+</div>
+<!-- /.modal -->
+<!-- jQuery 3 -->
+<script src="<?= base_url('assets/backend') ?>/bower_components/jquery/dist/jquery.min.js"></script>
+<!-- Bootstrap 3.3.7 -->
+<script src="<?= base_url('assets/backend') ?>/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+<!-- DataTables -->
+<script src="<?= base_url('assets/backend') ?>/bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
+<script src="<?= base_url('assets/backend') ?>/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+<!-- FastClick -->
+<script src="<?= base_url('assets/backend') ?>/bower_components/fastclick/lib/fastclick.js"></script>
+<!-- AdminLTE App -->
+<script src="<?= base_url('assets/backend') ?>/dist/js/adminlte.min.js"></script>
+<!-- Sparkline -->
+<script src="<?= base_url('assets/backend') ?>/bower_components/jquery-sparkline/dist/jquery.sparkline.min.js"></script>
+<!-- jvectormap  -->
+<script src="<?= base_url('assets/backend') ?>/plugins/jvectormap/jquery-jvectormap-1.2.2.min.js"></script>
+<script src="<?= base_url('assets/backend') ?>/plugins/jvectormap/jquery-jvectormap-world-mill-en.js"></script>
+<!-- SlimScroll -->
+<script src="<?= base_url('assets/backend') ?>/bower_components/jquery-slimscroll/jquery.slimscroll.min.js"></script>
+<!-- AdminLTE for demo purposes -->
+<script src="<?= base_url('assets/backend') ?>/dist/js/demo.js"></script>
+<!-- Bootstrap WYSIHTML5 -->
+<script src="<?= base_url('assets/backend') ?>/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js"></script>
+<script>
   $('#texteditor').wysihtml5({
     toolbar:{
       "image" : false
@@ -408,13 +408,14 @@ $jabatan = $this->session->userdata('jabatan');
       $('#checkAll').prop('checked', false);
     }
     if ($('.checkbox:checked').length == $(".checkbox").length) {
-        $('#checkall').prop('checked', true);
+      $('#checkall').prop('checked', true);
     }
   });
 </script>
 
 
 <script>
+  $(document).ready(function() {
   $("#confir_password").change(function() {
     $p1 = $("#confir_password").val();
     $p2 = $("#Password").val();
@@ -426,18 +427,39 @@ $jabatan = $this->session->userdata('jabatan');
     }
 
   });
+    
+  });
 
-  $(document).ready(function() {
     $("#btn_ubah").click(function() {
+      $.ajax({
+        url: '<?= base_url('modal') ?>',
+        type: 'GET',
+      })
+      .done(function(res) {
+        var hasil = JSON.parse(res);
+        $(".modal-body #id_l").val(hasil.id);
+        $(".modal-body #Username").val(hasil.username);
+        $(".modal-body #Jabatan").val(hasil.jabatan);
+      })
+      .fail(function() {
+        console.log("error");
+      })
+      .always(function() {
+        console.log("complete");
+      });
+
+    });
+
+    $(document).ready(function() {
+      $("#formUbah").on('submit', function(event) {
+        event.preventDefault();
         $.ajax({
-          url: '<?= base_url('modal') ?>',
-          type: 'GET',
+          url: '<?= base_url('modal/ubahakun') ?>',
+          type: 'POST',
+          data: $("#formUbah").serialize(),
         })
-        .done(function(res) {
-          console.log(res);
-          var hasil = JSON.parse(res);
-          $(".modal-body #id_l").val(hasil.id);
-          $(".modal-body #Username").val(hasil.username);
+        .done(function(data) {
+          location.reload();
         })
         .fail(function() {
           console.log("error");
@@ -446,26 +468,9 @@ $jabatan = $this->session->userdata('jabatan');
           console.log("complete");
         });
         
-    });
-
-    $("modal-footer #Simpan").click(function() {
-      $.ajax({
-        url: '<?= base_url('modal/ubahakun') ?>',
-        type: 'POST',
-        data: $(this) form,
-      })
-      .done(function() {
-        console.log("success");
-      })
-      .fail(function() {
-        console.log("error");
-      })
-      .always(function() {
-        console.log("complete");
       });
-      
     });
-  });
+    
 </script>
 
 
