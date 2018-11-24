@@ -29,10 +29,10 @@
         							<td width="40%" class="mailbox-subject"><b><?= $row['subjek'] ?></b> - <?= substr($row['pesan'], 0, 50) ?> ...
         							</td>
         							<td class="mailbox-date"><?= tanggal_indo($row['tanggal']) ?></td>
-        							<td><?php if ($row['pesan'] != null): ?>
-        								Sudah Dibalas
+        							<td><?php if ($row['balasan'] != null): ?>
+        								<span class="badge bg-green">Sudah dibalas</span>
         								<?php else: ?>
-        									belum dibalas
+        									<span class="badge bg-yellow">Belum dibalas</span>
         							<?php endif ?>
 
         							</td>

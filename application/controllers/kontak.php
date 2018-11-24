@@ -25,7 +25,8 @@ class kontak extends CI_Controller {
 	{
 		$data = array(
 			'balasan' => $this->input->post('balasan'),
-			'tgl_balasan' => date('Y m d')
+			'operator' =>$this->session->userdata('username'),
+			'tgl_balasan' => date('Y-m-d')
 		);
 		 $this->m_kontak->updateData($id, $data);
 		 $this->session->set_flashdata('infoss', 'Pesan berhasi dipost');

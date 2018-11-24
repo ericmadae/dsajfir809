@@ -55,24 +55,28 @@
 		<div class="box-title">Struktur Organisasi</div>
 	</div>
 	<div class="box-body">
-		<table class="table table-bordered table-striped" id="#example1">
+		<table class="table table-bordered table-striped table-responsive" id="#example2">
 			<thead>
-				<th>No</th>
-				<th>Jabatan</th>
-				<th>Nama</th>
-				<th>NIK</th>
-				<th>NIP</th>
-				<th>Foto</th>
-				<th>Aksi</th>	
+				<tr>
+					<th>No</th>
+					<th>Jabatan</th>
+					<th>Nama</th>
+					<th>NIK</th>
+					<th>NIP</th>
+					<th>Foto</th>
+					<th>Aksi</th>
+				</tr>	
 			</thead>
 			<tfoot>
-				<th>No</th>
-				<th>Jabatan</th>
-				<th>Nama</th>
-				<th>NIK</th>
-				<th>NIP</th>
-				<th>Foto</th>
-				<th>Aksi</th>
+				<tr>
+					<th>No</th>
+					<th>Jabatan</th>
+					<th>Nama</th>
+					<th>NIK</th>
+					<th>NIP</th>
+					<th>Foto</th>
+					<th>Aksi</th>
+				</tr>
 			</tfoot>
 			<tbody>
 				<?php $i=1; foreach ($organisasi as $row): ?>

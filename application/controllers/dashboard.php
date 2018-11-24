@@ -13,27 +13,14 @@ class Dashboard extends CI_Controller {
 
 	public function index()
 	{
-	$username = $this->session->userdata('username');
 		$data['submenu'] = "dashboard";
-		$data['akun'] = $this->m_dashboard->getId($username);
-		$this->session->set_userdata($data['akun']);	
+		$data['pengunjung'] = $this->m_dashboard->pengunjung();
+		$data['total'] = $this->m_dashboard->total();
+		$data['penilaian']= $this->m_dashboard->penilaian();
+		
+		$data['belumdibaca']= $this->m_dashboard->belumdibaca();
+		$data['online']= $this->m_dashboard->online();
 		$this->template->load('adminlte', 'v_dashboard', $data);
-	}
-	public function ubahakun()
-	{
-		$id = $this->input->post('id');
-		$data = array(
-			'username' => $this->input->post('username'),
-			'password' => md5($this->input->post('password'))
-		);
-		$res = $this->m_dashboard->updateUser($id, $data);
-		if ($res > 0) {
-			$this->session->set_flashdata('infoss', 'Akun berhasil diperbaharui');
-			redirect('dashboard');			
-		}else {
-			$this->session->set_flashdata('infoerr', 'Akun gagal diperbaharui');
-			redirect('dashboard');
-		}
 	}
 
 }

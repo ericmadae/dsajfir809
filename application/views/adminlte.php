@@ -308,13 +308,13 @@ $jabatan = $this->session->userdata('jabatan');
             <div class="form-group">
               <label for="Password" class="col-sm-2 control-label">Password Baru</label>
               <div class="col-sm-10">
-                <input type="password" required="required" class="form-control" id="Password" placeholder="Password" name="password" required>
+                <input type="password" required="required" class="form-control" id="Password" readonly onfocus="this.removeAttribute('readonly');" placeholder="Password" name="password" required>
               </div>
             </div>
             <div class="form-group">
               <label for="Password" class="col-sm-2 control-label">Konfirmasi Password</label>
               <div class="col-sm-10">
-                <input type="password" required="required" class="form-control" id="confir_password" placeholder="Password" name="confir_password" required>
+                <input type="password" required="required" class="form-control" id="confir_password" readonly onfocus="this.removeAttribute('readonly');" placeholder="Password" name="confir_password" required>
               </div>
             </div>
             <div class="form-group text-center text-danger">
@@ -412,24 +412,19 @@ $jabatan = $this->session->userdata('jabatan');
     }
   });
 </script>
-
-
 <script>
   $(document).ready(function() {
   $("#confir_password").change(function() {
     $p1 = $("#confir_password").val();
     $p2 = $("#Password").val();
-
     if ($p1 != $p2) {
       $("#error").text('Konfirmasi password salah');
     }else{
       $("#error").text();
     }
-
   });
     
   });
-
     $("#btn_ubah").click(function() {
       $.ajax({
         url: '<?= base_url('modal') ?>',
@@ -447,9 +442,7 @@ $jabatan = $this->session->userdata('jabatan');
       .always(function() {
         console.log("complete");
       });
-
     });
-
     $(document).ready(function() {
       $("#formUbah").on('submit', function(event) {
         event.preventDefault();
@@ -472,7 +465,6 @@ $jabatan = $this->session->userdata('jabatan');
     });
     
 </script>
-
 
 <!-- load file js lain -->
 <?php if (isset($conjs)): ?>

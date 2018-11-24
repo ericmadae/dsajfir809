@@ -1,21 +1,3 @@
--- phpMyAdmin SQL Dump
--- version 4.5.1
--- http://www.phpmyadmin.net
---
--- Host: 127.0.0.1
--- Generation Time: 13 Nov 2018 pada 01.49
--- Versi Server: 10.1.10-MariaDB
--- PHP Version: 5.6.15
-
-SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET time_zone = "+00:00";
-
-
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
-
 --
 -- Database: `sumedangss`
 --
@@ -37,7 +19,8 @@ CREATE TABLE `agenda` (
 --
 
 INSERT INTO `agenda` (`id`, `nm_agenda`, `tanggal`) VALUES
-(1, 'belajar', '2018-11-12');
+(1, 'belajar', '2018-11-12'),
+(2, 'belajar', '2018-11-16');
 
 -- --------------------------------------------------------
 
@@ -57,7 +40,8 @@ CREATE TABLE `galeri` (
 --
 
 INSERT INTO `galeri` (`id`, `judul`, `gambar`, `tanggal`) VALUES
-(1, 'adada', 'new.PNG', '2018-11-12');
+(1, 'adada', 'splash.PNG', '2018-11-12'),
+(2, 'adadas', 'Houtarou_oreki.jpg', '2018-11-13');
 
 -- --------------------------------------------------------
 
@@ -68,11 +52,21 @@ INSERT INTO `galeri` (`id`, `judul`, `gambar`, `tanggal`) VALUES
 CREATE TABLE `kontak_masuk` (
   `id` int(11) NOT NULL,
   `nama` varchar(200) NOT NULL,
+  `subjek` varchar(100) NOT NULL,
   `pesan` text NOT NULL,
   `tanggal` date NOT NULL,
   `operator` varchar(100) NOT NULL,
-  `balasan` text NOT NULL
+  `balasan` text NOT NULL,
+  `tgl_balasan` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data untuk tabel `kontak_masuk`
+--
+
+INSERT INTO `kontak_masuk` (`id`, `nama`, `subjek`, `pesan`, `tanggal`, `operator`, `balasan`, `tgl_balasan`) VALUES
+(2, 'aceng', 'kaka', 'hello there', '2018-11-15', 'Admin', 'hfya', '0000-00-00'),
+(3, 'ucup', 'lebih dari tv', 'gfsg', '2018-11-16', '', '', '0000-00-00');
 
 -- --------------------------------------------------------
 
@@ -125,7 +119,8 @@ CREATE TABLE `tb_berita` (
 INSERT INTO `tb_berita` (`id`, `judul_berita`, `waktu_publish`, `isi_berita`, `gambar`) VALUES
 (4, 'wrw', '2018-11-11', '<p>fjkahh adfhsjkafhsa jhasdhfiahf&nbsp;\r\n\r\nfjkahh adfhsjkafhsa jhasdhfiahf&nbsp;\r\n\r\nfjkahh adfhsjkafhsa jhasdhfiahf \r\n\r\nfjkahh adfhsjkafhsa jhasdhfiahf \r\n\r\n\r\n\r\nfjkahh adfhsjkafhsa jhasdhfiahf \r\n\r\nfjkahh adfhsjkafhsa jhasdhfiahf \r\n\r\n\r\n\r\nfjkahh adfhsjkafhsa jhasdhfiahf \r\n\r\nfjkahh adfhsjkafhsa jhasdhfiahf \r\n\r\n\r\n\r\nfjkahh adfhsjkafhsa jhasdhfiahf \r\n\r\nfjkahh adfhsjkafhsa jhasdhfiahf \r\n\r\n\r\n\r\nfjkahh adfhsjkafhsa jhasdhfiahf \r\n\r\nfjkahh adfhsjkafhsa jhasdhfiahf \r\n\r\n\r\n\r\nfjkahh adfhsjkafhsa jhasdhfiahf \r\n\r\nfjkahh adfhsjkafhsa jhasdhfiahf \r\n\r\n\r\n\r\nfjkahh adfhsjkafhsa jhasdhfiahf \r\n\r\nfjkahh adfhsjkafhsa jhasdhfiahf \r\n\r\n\r\n\r\nfjkahh adfhsjkafhsa jhasdhfiahf \r\n\r\nfjkahh adfhsjkafhsa jhasdhfiahf \r\n\r\n\r\n\r\nfjkahh adfhsjkafhsa jhasdhfiahf \r\n\r\nfjkahh adfhsjkafhsa jhasdhfiahf \r\n\r\n\r\n\r\nfjkahh adfhsjkafhsa jhasdhfiahf \r\n\r\nfjkahh adfhsjkafhsa jhasdhfiahf \r\n\r\n\r\n\r\nfjkahh adfhsjkafhsa jhasdhfiahf \r\n\r\nfjkahh adfhsjkafhsa jhasdhfiahf \r\n\r\n\r\n\r\nfjkahh adfhsjkafhsa jhasdhfiahf \r\n\r\nfjkahh adfhsjkafhsa jhasdhfiahf \r\n\r\n\r\n\r\nfjkahh adfhsjkafhsa jhasdhfiahf \r\n\r\nfjkahh adfhsjkafhsa jhasdhfiahf \r\n\r\n\r\n\r\nfjkahh adfhsjkafhsa jhasdhfiahf \r\n\r\nfjkahh adfhsjkafhsa jhasdhfiahf \r\n\r\n\r\n\r\nfjkahh adfhsjkafhsa jhasdhfiahf \r\n\r\nfjkahh adfhsjkafhsa jhasdhfiahf \r\n\r\n\r\n\r\nfjkahh adfhsjkafhsa jhasdhfiahf \r\n\r\nfjkahh adfhsjkafhsa jhasdhfiahf \r\n\r\n\r\n\r\nfjkahh adfhsjkafhsa jhasdhfiahf \r\n\r\nfjkahh adfhsjkafhsa jhasdhfiahf \r\n\r\n\r\n\r\nfjkahh adfhsjkafhsa jhasdhfiahf \r\n\r\nfjkahh adfhsjkafhsa jhasdhfiahf \r\n\r\n\r\n\r\nfjkahh adfhsjkafhsa jhasdhfiahf \r\n\r\nfjkahh adfhsjkafhsa jhasdhfiahf \r\n\r\n\r\n\r\nfjkahh adfhsjkafhsa jhasdhfiahf \r\n\r\nfjkahh adfhsjkafhsa jhasdhfiahf \r\n\r\n\r\n\r\nfjkahh adfhsjkafhsa jhasdhfiahf \r\n\r\nfjkahh adfhsjkafhsa jhasdhfiahf \r\n\r\n\r\n\r\nfjkahh adfhsjkafhsa jhasdhfiahf \r\n\r\nfjkahh adfhsjkafhsa jhasdhfiahf \r\n\r\n\r\n\r\nfjkahh adfhsjkafhsa jhasdhfiahf \r\n\r\nfjkahh adfhsjkafhsa jhasdhfiahf \r\n\r\n\r\n\r\nfjkahh adfhsjkafhsa jhasdhfiahf \r\n\r\nfjkahh adfhsjkafhsa jhasdhfiahf \r\n\r\n</p>', 'splash.PNG'),
 (8, 'sadfsa', '2018-11-09', '<p>fsdaff</p>', 'Houtarou_oreki.jpg'),
-(9, 'sfda', '2018-11-09', '<p>fsad</p>', 'new.PNG');
+(9, 'sfda', '2018-11-09', '<p>fsad</p>', 'new.PNG'),
+(11, 'dfaf', '2018-11-21', '<p>fdsf</p>', '975bb0879ff0fb59c0208597d3dec761.jpg');
 
 -- --------------------------------------------------------
 
@@ -213,7 +208,7 @@ INSERT INTO `tb_login` (`id`, `username`, `jabatan`, `password`) VALUES
 (7, 'kasSOS', 'kasi_sos', 'ae0ce1058a3d5e033703d471a29ae474'),
 (8, 'kasPMD', 'kasi_pmd', '7e333ba8a16c257acfcdc597aaa142f9'),
 (9, 'kasPU', 'kasi_pu', 'd21b5becb66e544d1434bb1115baecfd'),
-(10, 'Admin', 'admin', '21232f297a57a5a743894a0e4a801fc3');
+(10, 'admin', 'admin', '21232f297a57a5a743894a0e4a801fc3');
 
 -- --------------------------------------------------------
 
@@ -232,7 +227,7 @@ CREATE TABLE `tb_pelayanan` (
 --
 
 INSERT INTO `tb_pelayanan` (`id`, `pelayanan`, `persyaratan`) VALUES
-(1, 'KTP', 'bla');
+(1, 'KTP', 'blas');
 
 -- --------------------------------------------------------
 
@@ -254,18 +249,6 @@ CREATE TABLE `tb_profil` (
 INSERT INTO `tb_profil` (`id`, `title`, `isi`, `imgprof`) VALUES
 (1, 'Sejarah Sumedang Selatan', '', 'sejarahss.jpg'),
 (2, 'visi dan misi', '', 'visimisi.jpg\r\n');
-
--- --------------------------------------------------------
-
---
--- Struktur dari tabel `video`
---
-
-CREATE TABLE `video` (
-  `id` int(11) NOT NULL,
-  `judul` varchar(200) NOT NULL,
-  `video` varchar(200) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Indexes for dumped tables
@@ -332,12 +315,6 @@ ALTER TABLE `tb_profil`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `video`
---
-ALTER TABLE `video`
-  ADD PRIMARY KEY (`id`);
-
---
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -350,12 +327,12 @@ ALTER TABLE `agenda`
 -- AUTO_INCREMENT for table `galeri`
 --
 ALTER TABLE `galeri`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `kontak_masuk`
 --
 ALTER TABLE `kontak_masuk`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT for table `struktur_organisasi`
 --
@@ -365,7 +342,7 @@ ALTER TABLE `struktur_organisasi`
 -- AUTO_INCREMENT for table `tb_berita`
 --
 ALTER TABLE `tb_berita`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 --
 -- AUTO_INCREMENT for table `tb_kelurahan`
 --
@@ -391,11 +368,6 @@ ALTER TABLE `tb_pelayanan`
 --
 ALTER TABLE `tb_profil`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
---
--- AUTO_INCREMENT for table `video`
---
-ALTER TABLE `video`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
