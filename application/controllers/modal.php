@@ -18,8 +18,19 @@ class Modal extends CI_Controller {
 			'jabatan' => $akun['jabatan'],
 		);
 
-		 echo json_encode($data);
+		$this->load->view('v_modal', $data);
 
+	}
+	public function getData()
+	{
+		$username = $this->session->userdata('username');
+		$akun=$this->m_modal->infoAkun($username);
+		$data = array(
+			'id' => $akun['id'],
+			'username' => $akun['username'],
+			'jabatan' => $akun['jabatan'],
+		);
+		echo json_encode($data);
 	}
 	public function ubahakun()
 	{

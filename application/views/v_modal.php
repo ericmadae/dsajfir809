@@ -1,13 +1,9 @@
- <!-- ./wrapper -->
- <div class="modal fade" id="Ubah_akun">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header bg-primary">
+       <div class="modal-header bg-primary">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span></button>
           <h4 class="modal-title">Ubah Akun</h4>
         </div>
-        <form id="formUbah">
+        <form id="formUbahAkun" novalidate>
       <div class="modal-body">
         <!--form -->
         <div class="form-horizontal">
@@ -28,13 +24,13 @@
             <div class="form-group">
               <label for="Password" class="col-sm-2 control-label">Password Baru</label>
               <div class="col-sm-10">
-                <input type="password" required="required" class="form-control" id="Password"  placeholder="Password" name="password" required>
+                <input type="password" required="required" class="form-control" id="Password" placeholder="Password" name="password" required>
               </div>
             </div>
             <div class="form-group">
               <label for="Password" class="col-sm-2 control-label">Konfirmasi Password</label>
               <div class="col-sm-10">
-                <input type="password" required="required" class="form-control" id="confir_password" placeholder="Password" name="confir_password" required>
+                <input type="password" required="required" class="form-control" id="confir_password"  placeholder="Password" name="confir_password" required>
               </div>
             </div>
             <div class="form-group text-center text-danger">
@@ -50,9 +46,59 @@
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
       </div>
     </form>
-  </div>
-  <!-- /.modal-content -->
-</div>
-<!-- /.modal-dialog -->
-</div>
-<!-- /.modal -->
+    <!-- jQuery 3 -->
+<script src="<?= base_url('assets/backend') ?>/bower_components/jquery/dist/jquery.min.js"></script>
+<!-- Bootstrap 3.3.7 -->
+<script src="<?= base_url('assets/backend') ?>/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script>
+  $(document).ready(function() {
+  $("#confir_password").change(function() {
+    $p1 = $("#confir_password").val();
+    $p2 = $("#Password").val();
+    if ($p1 != $p2) {
+      $("#error").text('Konfirmasi password salah');
+    }else{
+      $("#error").text('');
+    }
+  });
+    
+  });
+      $.ajax({
+        url: '<?= base_url('modal/getData') ?>',
+        type: 'GET',
+      })
+      .done(function(res) {
+        var hasil = JSON.parse(res);
+        $(".modal-body #id_l").val(hasil.id);
+        $(".modal-body #Username").val(hasil.username);
+        $(".modal-body #Jabatan").val(hasil.jabatan);
+      })
+      .fail(function() {
+        console.log("error");
+      })
+      .always(function() {
+        console.log("complete");
+      });
+    $(document).ready(function() {
+      $("#formUbahAkun").on('submit', function(event) {
+        event.preventDefault();
+        $.ajax({
+          url: '<?= base_url('modal/ubahakun') ?>',
+          type: 'POST',
+          data: $("#formUbahAkun").serialize(),
+        })
+        .done(function(data) {
+         console.log(data);
+         location.reload();
+        })
+        .fail(function() {
+          console.log("error");
+        })
+        .always(function() {
+          console.log("complete");
+        });
+        
+      });
+    });
+    
+</script>
