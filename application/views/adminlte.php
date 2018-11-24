@@ -279,6 +279,7 @@ $jabatan = $this->session->userdata('jabatan');
 
  </div>
  <!-- ./wrapper -->
+
  <div class="modal fade" id="Ubah-akun">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -287,7 +288,7 @@ $jabatan = $this->session->userdata('jabatan');
           <span aria-hidden="true">&times;</span></button>
           <h4 class="modal-title">Ubah Akun</h4>
         </div>
-        <form id="formUbah">
+        <form id="formUbahAkun" novalidate>
       <div class="modal-body">
         <!--form -->
         <div class="form-horizontal">
@@ -308,13 +309,13 @@ $jabatan = $this->session->userdata('jabatan');
             <div class="form-group">
               <label for="Password" class="col-sm-2 control-label">Password Baru</label>
               <div class="col-sm-10">
-                <input type="password" required="required" class="form-control" id="Password" readonly onfocus="this.removeAttribute('readonly');" placeholder="Password" name="password" required>
+                <input type="password" required="required" class="form-control" id="Password" placeholder="Password" name="password" required>
               </div>
             </div>
             <div class="form-group">
               <label for="Password" class="col-sm-2 control-label">Konfirmasi Password</label>
               <div class="col-sm-10">
-                <input type="password" required="required" class="form-control" id="confir_password" readonly onfocus="this.removeAttribute('readonly');" placeholder="Password" name="confir_password" required>
+                <input type="password" required="required" class="form-control" id="confir_password"  placeholder="Password" name="confir_password" required>
               </div>
             </div>
             <div class="form-group text-center text-danger">
@@ -420,7 +421,7 @@ $jabatan = $this->session->userdata('jabatan');
     if ($p1 != $p2) {
       $("#error").text('Konfirmasi password salah');
     }else{
-      $("#error").text();
+      $("#error").text('');
     }
   });
     
@@ -444,15 +445,15 @@ $jabatan = $this->session->userdata('jabatan');
       });
     });
     $(document).ready(function() {
-      $("#formUbah").on('submit', function(event) {
+      $("#formUbahAkun").on('submit', function(event) {
         event.preventDefault();
         $.ajax({
           url: '<?= base_url('modal/ubahakun') ?>',
           type: 'POST',
-          data: $("#formUbah").serialize(),
+          data: $("#formUbahAkun").serialize(),
         })
         .done(function(data) {
-          location.reload();
+         console.log(data);
         })
         .fail(function() {
           console.log("error");
@@ -465,6 +466,7 @@ $jabatan = $this->session->userdata('jabatan');
     });
     
 </script>
+
 
 <!-- load file js lain -->
 <?php if (isset($conjs)): ?>
