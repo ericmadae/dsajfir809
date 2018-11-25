@@ -1,6 +1,10 @@
 <?php 
+if ($this->session->userdata('status') != "online") {
+  redirect('login');
+}
 $username = $this->session->userdata('username');
 $jabatan = $this->session->userdata('jabatan');
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -80,7 +84,7 @@ $jabatan = $this->session->userdata('jabatan');
                 <!-- Menu Footer-->
                 <li class="user-footer">
                   <div class="pull-left">
-                    <a href="<?= base_url('modal') ?>" class="btn btn-default btn-flat" data-toggle="modal" data-target="#Ubah-akun" id="btn_ubah">Ubah akun</a>
+                    <a href="<?= base_url('modal') ?>" id="btn_ubah" class="btn btn-default btn-flat" data-toggle="modal" data-target="#Ubah-akun">Ubah data</a>
                   </div>
                   <div class="pull-right">
                     <a href="<?= base_url('login/logout') ?>" class="btn btn-default btn-flat">Logout</a>
@@ -229,50 +233,53 @@ $jabatan = $this->session->userdata('jabatan');
             </ol>
           </section>
 
-          <?php if ($this->session->flashdata('infoss')): ?>
-           <div class="alert alert-success alert-dismissible">
+
+          <!-- Main content -->
+          <section class="content">
+
+            <?php if ($this->session->flashdata('infoss')): ?>
+             <div class="alert alert-success alert-dismissible">
+              <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+              <h4><i class="icon fa fa-check"></i><?= $this->session->flashdata('infoss') ?> </h4>
+            </div> 
+          <?php endif ?>
+          <?php if ($this->session->flashdata('infoerr')): ?>
+           <div class="alert alert-danger alert-dismissible">
             <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-            <h4><i class="icon fa fa-check"></i><?= $this->session->flashdata('infoss') ?> </h4>
+            <h4><i class="icon fa fa-ban"></i><?= $this->session->flashdata('infoerr') ?> </h4>
           </div> 
         <?php endif ?>
-        <?php if ($this->session->flashdata('infoerr')): ?>
-         <div class="alert alert-danger alert-dismissible">
-          <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-          <h4><i class="icon fa fa-ban"></i><?= $this->session->flashdata('infoerr') ?> </h4>
-        </div> 
-      <?php endif ?>
 
-      <!-- Main content -->
-      <section class="content">
-       <?= $contents ?>
-     </section>
-     <!-- /.content -->
-   </div>
-   <!-- /.content-wrapper -->
-
-   <footer class="main-footer">
-    <div class="pull-right hidden-xs">
-      <b>Web Kecamatan</b> V.1.0.0
+        
+        <?= $contents ?>
+      </section>
+      <!-- /.content -->
     </div>
-    <strong>STMIK SUMEDANG</strong>
-  </footer>
+    <!-- /.content-wrapper -->
 
-  <!-- Control Sidebar -->
-  <aside class="control-sidebar control-sidebar-dark">
-    <!-- Create the tabs -->
-    <ul class="nav nav-tabs nav-justified control-sidebar-tabs">
-      <li><a href="#control-sidebar-settings-tab" data-toggle="tab"><i class="fa fa-gears"></i></a></li>
-    </ul>
-    <!-- Tab panes -->
-    <div class="tab-content">
-      <!-- Home tab content -->
-      <div class="tab-pane" id="control-sidebar-home-tab">
-
+    <footer class="main-footer">
+      <div class="pull-right hidden-xs">
+        <b>Web Kecamatan</b> V.1.0.0
       </div>
-      <!-- /.tab-pane -->
-    </div>
-  </aside>
-  <!-- /.control-sidebar -->
+      <strong>STMIK SUMEDANG</strong>
+    </footer>
+
+    <!-- Control Sidebar -->
+    <aside class="control-sidebar control-sidebar-dark">
+      <!-- Create the tabs -->
+      <ul class="nav nav-tabs nav-justified control-sidebar-tabs">
+        <li><a href="#control-sidebar-settings-tab" data-toggle="tab"><i class="fa fa-gears"></i></a></li>
+      </ul>
+      <!-- Tab panes -->
+      <div class="tab-content">
+        <!-- Home tab content -->
+        <div class="tab-pane" id="control-sidebar-home-tab">
+
+        </div>
+        <!-- /.tab-pane -->
+      </div>
+    </aside>
+    <!-- /.control-sidebar -->
   <!-- Add the sidebar's background. This div must be placed
    immediately after the control sidebar -->
    <div class="control-sidebar-bg"></div>
@@ -284,10 +291,10 @@ $jabatan = $this->session->userdata('jabatan');
   <div class="modal-dialog">
     <div class="modal-content">
 
+    </div>
+    <!-- /.modal-content -->
   </div>
-  <!-- /.modal-content -->
-</div>
-<!-- /.modal-dialog -->
+  <!-- /.modal-dialog -->
 </div>
 <!-- /.modal -->
 <!-- jQuery 3 -->
@@ -366,7 +373,9 @@ $jabatan = $this->session->userdata('jabatan');
     }
   });
 </script>
+<script>
 
+</script>
 
 <!-- load file js lain -->
 <?php if (isset($conjs)): ?>

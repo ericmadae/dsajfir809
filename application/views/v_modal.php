@@ -42,8 +42,8 @@
         <!-- endForm -->
       </div>
       <div class="modal-footer">
-        <button type="submit" class="btn btn-primary" id="Simpan">Simpan</button>
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="submit" class="btn btn-primary" id="Simpan" disabled>Simpan</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal" id="close">Close</button>
       </div>
     </form>
     <!-- jQuery 3 -->
@@ -53,13 +53,17 @@
     <script>
   $(document).ready(function() {
   $("#confir_password").change(function() {
-    $p1 = $("#confir_password").val();
-    $p2 = $("#Password").val();
-    if ($p1 != $p2) {
+    var p1 = $("#confir_password").val();
+    var p2 = $("#Password").val();
+
+    if (p1 != p2) {
       $("#error").text('Konfirmasi password salah');
+      $(".modal-footer #Simpan").attr('disabled', 'disabled');
     }else{
       $("#error").text('');
+       $(".modal-footer #Simpan").attr('disabled', false);
     }
+
   });
     
   });
@@ -96,9 +100,18 @@
         })
         .always(function() {
           console.log("complete");
+
         });
         
       });
     });
     
+</script>
+<script>
+  $(".close").click(function() {
+    location.reload();
+  });
+   $("#close").click(function() {
+    location.reload();
+  });
 </script>
