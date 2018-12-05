@@ -125,6 +125,11 @@ $jabatan = $this->session->userdata('jabatan');
             </a>
           </li>
 
+          <li id="sambutan" >
+            <a href="<?= base_url('sambutan') ?>">
+              <i class="fa fa-sticky-note-o"></i> <span>Sambutan</span>
+            </a>
+          </li>
           <li id="profil" class="treeview">
             <a href="#">
               <i class="fa fa-id-card"></i>
